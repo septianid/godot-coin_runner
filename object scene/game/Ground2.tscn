@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/tileset/1.png" type="Texture" id=1]
+[ext_resource path="res://assets/tileset/4.png" type="Texture" id=2]
+[ext_resource path="res://assets/tileset/2.png" type="Texture" id=3]
+[ext_resource path="res://assets/tileset/17.png" type="Texture" id=4]
+[ext_resource path="res://assets/tileset/18.png" type="Texture" id=5]
+[ext_resource path="res://assets/tileset/6.png" type="Texture" id=6]
+[ext_resource path="res://assets/tileset/3.png" type="Texture" id=7]
+[ext_resource path="res://assets/tileset/5.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 189.013, 285.115 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 94.4782, 285.115 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 192.015, 133.703 )
+
+[node name="Ground" type="StaticBody2D"]
+
+[node name="LeftDetector" type="Position2D" parent="."]
+position = Vector2( -96, 0 )
+
+[node name="Tileset" type="Node2D" parent="."]
+
+[node name="Sprite1_1" type="Sprite" parent="Tileset"]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+
+[node name="Sprite1_2" type="Sprite" parent="Tileset"]
+position = Vector2( 190, 7.21216e-06 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 7 )
+
+[node name="Sprite1_3" type="Sprite" parent="Tileset"]
+position = Vector2( 380, 20 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 4 )
+
+[node name="Sprite1_4" type="Sprite" parent="Tileset"]
+position = Vector2( 570, 20 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 4 )
+
+[node name="Sprite1_5" type="Sprite" parent="Tileset"]
+position = Vector2( 760, 0 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 1 )
+
+[node name="Sprite2_1" type="Sprite" parent="Tileset"]
+position = Vector2( 0, 190 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2_2" type="Sprite" parent="Tileset"]
+position = Vector2( 190, 190 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2_3" type="Sprite" parent="Tileset"]
+position = Vector2( 380, 190 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2_4" type="Sprite" parent="Tileset"]
+position = Vector2( 570, 190 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2_5" type="Sprite" parent="Tileset"]
+position = Vector2( 760, 190 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3_1" type="Sprite" parent="Tileset"]
+position = Vector2( 0, 380 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+
+[node name="Sprite3_2" type="Sprite" parent="Tileset"]
+position = Vector2( 190, 380 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="Sprite3_3" type="Sprite" parent="Tileset"]
+position = Vector2( 380, 380 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3_4" type="Sprite" parent="Tileset"]
+position = Vector2( 570, 380 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3_5" type="Sprite" parent="Tileset"]
+position = Vector2( 760, 380 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 2 )
+
+[node name="ColliderGround1" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 95, 190 )
+shape = SubResource( 1 )
+
+[node name="ColliderGround2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 761, 190 )
+shape = SubResource( 2 )
+
+[node name="ColliderGround3" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 475, 340 )
+shape = SubResource( 3 )
+
+[node name="RightDetector" type="Position2D" parent="."]
+position = Vector2( 856, 0 )

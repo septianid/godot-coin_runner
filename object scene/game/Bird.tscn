@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/bird/bird_fly.png" type="Texture" id=1]
+[ext_resource path="res://assets/bird/bird_explode.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 100, 72 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 100, 0, 100, 72 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 200, 0, 100, 72 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 300, 0, 100, 72 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 105, 100 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 105, 0, 105, 100 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 210, 0, 105, 100 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 315, 0, 105, 100 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "fly",
+"speed": 8.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": false,
+"name": "explode",
+"speed": 8.0
+} ]
+
+[node name="Bird" type="KinematicBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.1, 1.1 )
+frames = SubResource( 9 )
+animation = "fly"
+playing = true
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -54.6332, 19.1514, -51.7197, 10.6757, -47.2169, 5.90808, -42.7142, 3.78916, -35.298, 3.52429, -30.2655, 5.11349, -27.6169, -3.36222, -21.525, -9.98386, -13.8438, -14.2217, -8.28167, -16.0758, 1.51836, -16.0758, 10.7887, -14.2217, 17.6752, -11.0433, 22.7076, -6.54061, 25.886, -3.36222, 31.7131, -3.09735, 35.9509, -10.5136, 40.1888, -15.0163, 43.8969, -16.6055, 47.605, -14.2217, 46.2807, -8.65953, 43.632, -3.36222, 41.2482, 0.610771, 41.2482, 7.49728, 46.5455, 14.9135, 46.8104, 19.6811, 42.5726, 19.6811, 45.4861, 26.0379, 47.605, 31.8649, 47.0753, 37.4271, 43.632, 38.7514, 38.5996, 34.2487, 34.0968, 25.773, 30.6536, 18.3568, 25.3563, 26.3027, 17.94, 32.3947, 9.19948, 36.6325, -0.865425, 38.7514, -11.9898, 37.9568, -21.7898, 33.1893, -27.8817, 24.7136, -30.0007, 19.946, -35.5628, 21.5352, -39.8007, 19.4162, -41.6548, 16.5027, -47.7467, 17.0324 )

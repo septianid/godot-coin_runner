@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://object scene/game/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/game/BG.png" type="Texture" id=2]
+[ext_resource path="res://scripts/main_game.gd" type="Script" id=3]
+[ext_resource path="res://scripts/gameobject/background_scrolling.gd" type="Script" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float scroll_speed;
+
+void fragment(){
+	vec2 shifteduv = UV;
+	shifteduv.x += TIME * scroll_speed;
+	vec4 color = texture(TEXTURE, shifteduv);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/scroll_speed = null
+
+[node name="[R] Game" type="Node"]
+script = ExtResource( 3 )
+
+[node name="LeftGroundCheckTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="RightGroundCheckTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource( 2 )
+margin_right = 1006.0
+margin_bottom = 750.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scroll_speed = 0.0
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 500 )
+
+[connection signal="timeout" from="LeftGroundCheckTimer" to="." method="on_LeftGroundCheckTimer_timeout"]
+[connection signal="timeout" from="RightGroundCheckTimer" to="." method="on_RightGroundCheckTimer_timeout"]
+[connection signal="hit" from="Player" to="." method="on_Player_hit"]
